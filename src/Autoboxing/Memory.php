@@ -27,7 +27,10 @@
 namespace SNTools\Types\Autoboxing;
 
 /**
- * Description of Memory
+ * Memory collection of referenced variables.
+ * This class fills the role of variable manager, according to the Autoboxing technique from Arthur Graniszewski
+ *
+ * @link http://www.phpclasses.org/package/6570-PHP-Wrap-string-and-integer-values-in-objects.html Arthur Graniszewski's Autoboxing classes
  *
  * @author Samy NAAMANI <samy@namani.net>
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
@@ -35,23 +38,29 @@ namespace SNTools\Types\Autoboxing;
  */
 final class Memory implements \Iterator, \Countable, \ArrayAccess{
     /**
-     *
+     * The actual variables collection
      * @var &mixed[]
      */
     private $pointers = array();
     
     /**
-     *
+     * Last variable address in the collection.
+     * Special value "-1" means "no address yet".
      * @var int
      */
     private static $lastAddress = -1;
-    
+
+    /**
+     * Private constructor. Only static methods can create instances.
+     * The instance will register itself into the garbage collector upon construction.
+     */
     private function __construct() {
         GarbageCollector::setMemory(&$this);
     }
 
     /**
-     * 
+     * Counts number of variables in the collection
+     * @see \Countable::count()
      * @return int
      */
     public function count() {
@@ -59,7 +68,8 @@ final class Memory implements \Iterator, \Countable, \ArrayAccess{
     }
 
     /**
-     * 
+     * Current element
+     * @see \Iterator::current()
      * @return &mixed
      */
     public function current() {
@@ -67,49 +77,82 @@ final class Memory implements \Iterator, \Countable, \ArrayAccess{
     }
 
     /**
-     * 
-     * @return int
+     * Key for current element. Null if no more element.
+     * @see \Iterator::key()
+     * @return int|null
      */
     public function key() {
         return key($this->pointers);
     }
 
+    /**
+     * Moves to next element
+     * @see \Iterator::next()
+     */
     public function next() {
         next($this->pointers);
     }
 
+    /**
+     * Goes back to first element
+     * @see \Iterator::rewind()
+     */
     public function rewind() {
         reset($this->pointers);
     }
 
     /**
-     * 
+     * Checks validity of current position
+     * @see \Iterator::valid()
      * @return boolean
      */
     public function valid() {
         return !is_null($this->key());
     }
-    
+
+    /**
+     * Checks if element exists
+     * @see \ArrayAccess::offsetExists()
+     * @param int|string $offset Key for element
+     * @return boolean
+     */
     public function offsetExists($offset) {
         return isset($this->pointers[$offset]);
     }
-    
+
+    /**
+     * Get element. Returns null if none found.
+     * @see \ArrayAccess::offsetGet()
+     * @param int|string $offset Key for element
+     * @return mixed|null
+     */
     public function offsetGet($offset) {
         return $this->offsetExists($offset) ? $this->pointers[$offset] : null;
     }
-    
+
+    /**
+     * Sets element into collection
+     * @see \ArrayAccess::offsetSet()
+     * @param int|string $offset Key for element
+     * @param &mixed $value Element. Here, the element is added as reference into the collection.
+     */
     public function offsetSet($offset, &$value) {
         $this->pointers[$offset] =& $value;
     }
-    
+
+    /**
+     * Unsets element in collection
+     * @see \ArrayAccess::offsetUnset()
+     * @param int|string $offset Key for element
+     */
     public function offsetUnset($offset) {
         unset($this->pointers[$offset]);
     }
     
     /**
-     * 
-     * @staticvar Memory $instance
-     * @return Memory
+     * Creates instance of Memory, as private singleton
+     * @staticvar self $instance Singleton instance
+     * @return self
      */
     private static function getInstance() {
         static $instance = null;
@@ -118,9 +161,9 @@ final class Memory implements \Iterator, \Countable, \ArrayAccess{
     }
     
     /**
-     * 
-     * @param &mixed $var
-     * @return int
+     * Allocates a new variable into memory.
+     * @param &mixed $var Variable reference to count.
+     * @return int Variable address in the memory collection
      * @throws OutOfMemoryException
      */
     public static function alloc(&$var) {
@@ -139,12 +182,21 @@ final class Memory implements \Iterator, \Countable, \ArrayAccess{
             return $address;
         }
     }
-    
+
+    /**
+     * Gets a variable from memory
+     * @param int $id Variable address
+     * @return &mixed|null Variable, as reference. Null if not found.
+     */
     public static function &get($id) {
         $memory = self::getInstance();
         return $memory[$id];
     }
-    
+
+    /**
+     * Frees a variable from memory
+     * @param int $id Variable address
+     */
     public static function free($id) {
         $memory = self::getInstance();
         unset($memory[$id]);

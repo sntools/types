@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>Class SNTools\Types\Number | SNTypes : Strong type handling</title>
+
+	<link rel="stylesheet" href="resources/style.css?e99947befd7bf673c6b43ff75e9e0f170c88a60e">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+				<h3>Namespaces</h3>
+			<ul>
+				<li class="active">
+					<a href="namespace-SNTools.html">
+						SNTools<span></span>
+					</a>
+
+						<ul>
+				<li class="active">
+					<a href="namespace-SNTools.Types.html">
+						Types					</a>
+
+						</li>
+							</ul></li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-SNTools.Types.Bool.html">Bool</a></li>
+				<li><a href="class-SNTools.Types.EMail.html">EMail</a></li>
+				<li><a href="class-SNTools.Types.Enum.html">Enum</a></li>
+				<li><a href="class-SNTools.Types.Flag.html">Flag</a></li>
+				<li><a href="class-SNTools.Types.Int.html">Int</a></li>
+				<li class="active"><a href="class-SNTools.Types.Number.html">Number</a></li>
+				<li><a href="class-SNTools.Types.Regex.html">Regex</a></li>
+				<li><a href="class-SNTools.Types.String.html">String</a></li>
+				<li><a href="class-SNTools.Types.Type.html">Type</a></li>
+				<li><a href="class-SNTools.Types.UInt.html">UInt</a></li>
+			</ul>
+
+			<h3>Interfaces</h3>
+			<ul>
+				<li><a href="class-SNTools.Types.Comparable.html">Comparable</a></li>
+			</ul>
+
+
+			<h3>Exceptions</h3>
+			<ul>
+				<li><a href="class-SNTools.Types.DivideByZeroException.html">DivideByZeroException</a></li>
+				<li><a href="class-SNTools.Types.InvalidValueException.html">InvalidValueException</a></li>
+				<li><a href="class-SNTools.Types.OverrideException.html">OverrideException</a></li>
+				<li><a href="class-SNTools.Types.TypeMismatchException.html">TypeMismatchException</a></li>
+			</ul>
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text" placeholder="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-SNTools.Types.html" title="Summary of SNTools\Types"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+				<li>
+					<a href="annotation-group-todo.html" title="List of elements with todo annotation">
+						<span>Todo</span>
+					</a>
+				</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="-API-documentation.zip" title="Download documentation as ZIP archive"><span>Download</span></a>
+			</li>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class Number</h1>
+
+
+	<div class="description">
+	<p>Wrapper for numbers (floats and integers)
+For integer-specific wrapper, see Int and UInt</p>
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-SNTools.Object.html"><span>SNTools\Object</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-SNTools.Types.Type.html"><span>SNTools\Types\Type</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>SNTools\Types\Number</span></b>			
+			 implements 
+				<a href="class-SNTools.Types.Comparable.html"><span>SNTools\Types\Comparable</span></a>
+			
+			
+		</dd>
+	</dl>
+
+
+	<div>
+		<h4>Direct known subclasses</h4>
+			<a href="class-SNTools.Types.Int.html">SNTools\Types\Int</a>
+	</div>
+
+	<div>
+		<h4>Indirect known subclasses</h4>
+			<a href="class-SNTools.Types.UInt.html">SNTools\Types\UInt</a>
+	</div>
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-SNTools.html">SNTools</a>\<a href="namespace-SNTools.Types.html">Types</a><br>
+		
+
+				<b>License:</b>
+				<a href="https://github.com/sntools/types/blob/master/LICENSE">MIT</a><br>
+				<b>Author:</b>
+				Samy NAAMANI <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;">&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;</a><br>
+			<b>Located at</b> <a href="source-class-SNTools.Types.Number.html#29-166" title="Go to source code">Number.php</a>
+		<br>
+	</div>
+
+
+
+	<table class="summary methods" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="fromDouble" id="_fromDouble">
+
+		<td class="attributes"><code>
+			 protected 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fromDouble">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#37-40" title="Go to source code">fromDouble</a>( <span>float <var>$value</var></span> )</code>
+
+		<div class="description short">
+			<p>Check variable creation from double</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Check variable creation from double</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-SNTools.Types.Type.html#_fromDouble">SNTools\Types\Type::fromDouble()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fromInt" id="_fromInt">
+
+		<td class="attributes"><code>
+			 protected 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fromInt">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#41-43" title="Go to source code">fromInt</a>( <span>integer <var>$value</var></span> )</code>
+
+		<div class="description short">
+			<p>Check variable creation from integer</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Check variable creation from integer</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-SNTools.Types.Type.html#_fromInt">SNTools\Types\Type::fromInt()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fromBool" id="_fromBool">
+
+		<td class="attributes"><code>
+			 protected 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fromBool">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#44-46" title="Go to source code">fromBool</a>( <span>boolean <var>$value</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks variable creation from boolean</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks variable creation from boolean</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-SNTools.Types.Type.html#_fromBool">SNTools\Types\Type::fromBool()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="fromString" id="_fromString">
+
+		<td class="attributes"><code>
+			 protected 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_fromString">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#47-50" title="Go to source code">fromString</a>( <span>string <var>$value</var></span> )</code>
+
+		<div class="description short">
+			<p>Check variable creation from string</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Check variable creation from string</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$value</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-SNTools.Types.Type.html#_fromString">SNTools\Types\Type::fromString()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="add" id="_add">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_add">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#51-60" title="Go to source code">add</a>( <span><code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code> <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Adds a number to this number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Adds a number to this number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="sub" id="_sub">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_sub">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#61-70" title="Go to source code">sub</a>( <span><code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code> <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Deduces a number to this number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Deduces a number to this number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="times" id="_times">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_times">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#71-80" title="Go to source code">times</a>( <span><code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code> <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Multiplies a number by this number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Multiplies a number by this number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="div" id="_div">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_div">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#81-92" title="Go to source code">div</a>( <span><code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code> <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Divides this number using given number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Divides this number using given number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.DivideByZeroException.html">SNTools\Types\DivideByZeroException</a></code>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="module" id="_module">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_module">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#93-104" title="Go to source code">module</a>( <span><code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code> <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Computes the modulo of this number by given number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Computes the modulo of this number by given number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Number.html">SNTools\Types\Number</a></code>
+				</div>
+
+				<h4>Throws</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.DivideByZeroException.html">SNTools\Types\DivideByZeroException</a></code>
+				</div>
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="compareTo" id="_compareTo">
+
+		<td class="attributes"><code>
+			 public 
+
+			integer
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_compareTo">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#106-116" title="Go to source code">compareTo</a>( <span>mixed <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Compare this element to given element</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Compare this element to given element</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd>Element to compare this element to</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					integer<br>1 if $b is less than $this, 0 if they are equals, -1 otherwise
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SNTools.Types.Comparable.html#_compareTo">SNTools\Types\Comparable::compareTo()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="greaterThan" id="_greaterThan">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_greaterThan">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#118-125" title="Go to source code">greaterThan</a>( <span>mixed <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if number is greater than given number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if number is greater than given number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="greaterOrEqual" id="_greaterOrEqual">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_greaterOrEqual">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#127-134" title="Go to source code">greaterOrEqual</a>( <span>mixed <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if number is greater than or equals given number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if number is greater than or equals given number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="lessThan" id="_lessThan">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_lessThan">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#136-143" title="Go to source code">lessThan</a>( <span>mixed <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if number is lesser than given number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if number is lesser than given number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="lessOrEqual" id="_lessOrEqual">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_lessOrEqual">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#145-152" title="Go to source code">lessOrEqual</a>( <span>mixed <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if number is lesser than or equals given number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if number is lesser than or equals given number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="equals" id="_equals">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_equals">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#154-161" title="Go to source code">equals</a>( <span>mixed <var>$b</var></span> )</code>
+
+		<div class="description short">
+			<p>Checks if number is equals given number</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Checks if number is equals given number</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$b</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="clear" id="_clear">
+
+		<td class="attributes"><code>
+			 protected 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_clear">#</a>
+		<code><a href="source-class-SNTools.Types.Number.html#163-165" title="Go to source code">clear</a>( )</code>
+
+		<div class="description short">
+			<p>clears inner value, setting it to a default value</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>clears inner value, setting it to a default value</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-SNTools.Types.Type.html#methods">SNTools\Types\Type</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-SNTools.Types.Type.html#___bool">__bool()</a>, 
+			<a href="class-SNTools.Types.Type.html#___bool_not">__bool_not()</a>, 
+			<a href="class-SNTools.Types.Type.html#___get">__get()</a>, 
+			<a href="class-SNTools.Types.Type.html#___set">__set()</a>, 
+			<a href="class-SNTools.Types.Type.html#_create">create()</a>, 
+			<a href="class-SNTools.Types.Type.html#_fromArray">fromArray()</a>, 
+			<a href="class-SNTools.Types.Type.html#_fromObject">fromObject()</a>, 
+			<a href="class-SNTools.Types.Type.html#_fromResource">fromResource()</a>, 
+			<a href="class-SNTools.Types.Type.html#_getValue">getValue()</a>, 
+			<a href="class-SNTools.Types.Type.html#_setValue">setValue()</a>, 
+			<a href="class-SNTools.Types.Type.html#_toBool">toBool()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-SNTools.Object.html#methods">SNTools\Object</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-SNTools.Object.html#___construct">__construct()</a>, 
+			<a href="class-SNTools.Object.html#___constructStatic">__constructStatic()</a>, 
+			<a href="class-SNTools.Object.html#___isset">__isset()</a>, 
+			<a href="class-SNTools.Object.html#___toString">__toString()</a>, 
+			<a href="class-SNTools.Object.html#___unset">__unset()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-SNTools.Types.Type.html#properties">SNTools\Types\Type</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-SNTools.Types.Type.html#$value"><var>$value</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+	<table class="summary inherited">
+	<caption>Magic properties inherited from <a href="class-SNTools.Types.Type.html#properties">SNTools\Types\Type</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-SNTools.Types.Type.html#m$nullable"><var>$nullable</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+</div>
+
+	<div id="footer">
+		SNTypes : Strong type handling API documentation generated by <a href="http://apigen.org">ApiGen</a>
+	</div>
+</div>
+</div>
+<script src="resources/combined.js"></script>
+<script src="elementlist.js"></script>
+</body>
+</html>

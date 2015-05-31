@@ -8,10 +8,10 @@ Thus, the package will grant you access to object-oriented wrappers for simple t
 
 # Download
 
-The easiest way to download the core tools is through Composer. Simply add the following to your composer requirements, where "dev-master" can be replaced by any version you need :
+The easiest way to download the core tools is through Composer. Simply add the following to your composer requirements, where "~1.0" can be replaced by any version you need :
 
 ```
-"sntools/types": "dev-master"
+"sntools/types": "~1.0"
 ```
 
 # The fathers of PHP Autoboxing

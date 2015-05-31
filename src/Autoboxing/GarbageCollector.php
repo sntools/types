@@ -27,38 +27,54 @@
 namespace SNTools\Types\Autoboxing;
 
 /**
- * Description of GarbageCollector
+ * Garbage collector static class.
+ * Controls how many variables point to a reference (excluding system ones)
+ * and removes those references with no variable pointing to them.
+ * Triggerred my Memory
  *
  * @author Samy NAAMANI <samy@namani.net>
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  * @ignore
  */
 final class GarbageCollector {
+    /**
+     * Constant used by collect() to know if GC is to be triggered or not
+     */
     const CYCLE_MAX = 10000;
     
     /**
-     *
+     * Linked Memory collection object
      * @var Memory
      */
     private static $memory = null;
     
     /**
-     * 
+     * Links a Memory collection object to the garbage collector
      * @param Memory &$memory
      */
     public static function setMemory(Memory &$memory) {
         self::$memory =& $memory;
     }
 
+    /**
+     * Unlinks the Memory collection object
+     */
     public static function unsetMemory() {
         self::$memory = null;
     }
-    
+
+    /**
+     * Private constructor.
+     *
+     * Exists to prevent instance creation, since this is a static class.
+     */
     private function __construct() {}
     
     /**
-     * 
-     * @param &mixed $var
+     * Count the number of references to the value pointed by given variable.
+     * The counting algorithm is based on Alexandre Quercia's work.
+     * @link https://github.com/alquerci/php-types-autoboxing/blob/v1.0.0-BETA2/Memory/GarbageCollector.php Alexandre Quercia's Garbage Collector and refCount method
+     * @param &mixed $var Variable to count references for
      * @return int
      */
     private static function refCount(&$var) {
@@ -68,12 +84,13 @@ final class GarbageCollector {
     }
     
     /**
-     * @param int $ref_cycle
-     * @return int
+     * Start garbage collection.
+     * Will first test if collection should start, using CYCLE_MAX constant.
+     * @return int Number of collected variables
      */
     public static function collect() {
         $collected = 0;
-        if(!is_null(self::$memory) and (0 == (count(self::$memory) % self::CYCLE_MAX))) {
+        if(!is_null(self::$memory) and (0 == (count(self::$memory) % self::CYCLE_MAX)) and (5 >= rand(0, 100))) {
             foreach(self::$memory as $address => $var) {
                 if(self::refCount($var) == 0) {
                     unset(self::$memory[$address]);

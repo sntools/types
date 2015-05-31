@@ -1,0 +1,14 @@
+source:
+    - src
+    - vendor/sntools/core/src
+
+destination: docs
+title: "SNTypes : Strong type handling"
+charset:
+    - "UTF-8"
+accessLevels:
+    - public
+    - protected
+tree: no
+todo: yes
+download: yes

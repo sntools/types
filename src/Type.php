@@ -1,34 +1,61 @@
 <?php
+
+/*
+ * The MIT License
+ *
+ * Copyright 2015 Samy NAAMANI.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ * THE SOFTWARE.
+ */
+
 namespace SNTools\Types;
 use SNTools\Object;
 use SNTools\Types\Autoboxing\Memory;
 
 /**
- * Description of Type
+ * Superclass for all autoboxed types.
+ * This class fills the role of the AutoBoxedObject class, according to the Autoboxing technique from Arthur Graniszewski
  *
- * @author Darth Killer
- * @property boolean $nullable
+ * @link http://www.phpclasses.org/package/6570-PHP-Wrap-string-and-integer-values-in-objects.html Arthur Graniszewski's Autoboxing classes
+ * @author Samy NAAMANI <samy@namani.net>
+ * @license https://github.com/sntools/types/blob/master/LICENSE MIT
+ * @property boolean $nullable Is the element nullable or not ?
  */
 abstract class Type extends Object {
     /**
-     *
+     * Real value
      * @var mixed
      */
     protected $value;
     /**
-     *
+     * Memory variable
      * @var int
      */
     private $memoryId;
-    
+
+    /**
+     * Is the element nullable or not ?
+     * @var boolean
+     * @see Type::$nullable
+     */
     private $_nullable = false;
     
-    /**
-     * 
-     * @param string $name
-     * @return mixed
-     * @throws \DomainException
-     */
     public function __get($name) {
         switch($name) {
             case 'nullable':
@@ -38,12 +65,6 @@ abstract class Type extends Object {
         }
     }
     
-    /**
-     * 
-     * @param string $name
-     * @param mixed $value
-     * @throws \DomainException
-     */
     public function __set($name, $value) {
         switch($name) {
             case 'nullable':
@@ -55,10 +76,10 @@ abstract class Type extends Object {
     }
     
     /**
-     * 
-     * @param &mixed $var
-     * @param mixed|null $value
-     * @param boolean $override
+     * Create a new autoboxed variable
+     * @param &mixed $var Reference to the variable to create
+     * @param mixed|null $value If not null, value to use to override referenced variable
+     * @param boolean $override If neither $var nor $value, allow override of $var or not
      * @throws TypeMismatchException
      * @throws InvalidValueException
      * @throws OverrideException
@@ -78,7 +99,7 @@ abstract class Type extends Object {
     }
     
     /**
-     * 
+     * Private constructor. Use Type::create() instead.
      * @param mixed|null $value
      * @throws TypeMismatchException
      * @throws InvalidValueException
@@ -87,22 +108,26 @@ abstract class Type extends Object {
         parent::__construct();
         $this->setValue($value);
     }
-    
+
+    /**
+     * Destructor. Frees variable from memory, OR creates a new variable from previous one
+     * @ignore
+     */
     final public function __destruct() {
         if(!is_null($this->memoryId)) {
             $pointer =& Memory::get($this->memoryId);
             $value = $pointer;
             if($value !== $this and !is_null($value)) {
                 $pointer = null;
-                self::create($pointer, $value);
+                static::create($pointer, $value);
             }
             Memory::free($this->memoryId);
         }
     }
     
     /**
-     * 
-     * @param mixed $value
+     * Sets value into variable
+     * @param mixed $value Value to use
      * @throws TypeMismatchException
      * @throws InvalidValueException
      */
@@ -133,47 +158,47 @@ abstract class Type extends Object {
         if(!$ok) throw new InvalidValueException(sprintf('Unexpected value %s for %s', $value, get_called_class ()));
     }
     /**
-     * 
+     * Checks variable creation from boolean
      * @param boolean $value
      * @return boolean
      */
     protected function fromBool($value) {
-        return false and $value; // IDE warining trick
+        return false and $value; // IDE anti-warning trick
     }
     /**
-     * 
+     * Check variable creation from integer
      * @param int $value
      * @return boolean
      */
     protected function fromInt($value) {
-        return false and $value; // IDE warining trick
+        return false and $value; // IDE anti-warning trick
     }
     /**
-     * 
+     * Check variable creation from double
      * @param double $value
      * @return boolean
      */
     protected function fromDouble($value) {
-        return false and $value; // IDE warining trick
+        return false and $value; // IDE anti-warning trick
     }
     /**
-     * 
+     * Check variable creation from string
      * @param string $value
      * @return boolean
      */
     protected function fromString($value) {
-        return false and $value; // IDE warining trick
+        return false and $value; // IDE anti-warning trick
     }
     /**
-     * 
+     * Check variable creation from array
      * @param array $value
      * @return boolean
      */
     protected function fromArray(array $value) {
-        return false and $value; // IDE warining trick
+        return false and $value; // IDE anti-warning trick
     }
     /**
-     * 
+     * Check variable creation from object
      * @param object $value
      * @return boolean
      */
@@ -184,30 +209,51 @@ abstract class Type extends Object {
         } else return false;
     }
     /**
-     * 
+     * Check variable creation from resource
      * @param resource $value
      * @return boolean
      */
     protected function fromResource($value) {
-        return false and $value; // IDE warining trick
+        return false and $value; // IDE anti-warning trick
     }
     /**
-     * 
+     * Get inner value
      * @return mixed
      */
     final public function getValue() {
         return $this->value;
     }
-    
+
+    /**
+     * clears inner value, setting it to a default value
+     */
     abstract protected function clear();
     
     /**
-     * 
+     * Conversion to boolean
      * @return Bool
      */
     final public function toBool() {
         $bool = null;
         Bool::create($bool, $this);
         return $bool;
+    }
+
+    /**
+     * (bool) operator overriding
+     * @return boolean
+     * @todo Query : return a native boolean or a Bool object ?
+     */
+    public function __bool() {
+        return $this->toBool()->getValue();
+    }
+
+    /**
+     * ! operator overriding
+     * @return boolean
+     * @todo Query : return a native boolean or a Bool object ?
+     */
+    public function __bool_not() {
+        return !$this->__bool();
     }
 }

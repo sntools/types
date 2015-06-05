@@ -54,6 +54,7 @@
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-SNTools.Types.Comparable.html">Comparable</a></li>
+				<li><a href="class-SNTools.Types.FlagInterface.html">FlagInterface</a></li>
 			</ul>
 
 
@@ -137,6 +138,8 @@
 			<img src="resources/inherit.png" alt="Extended by">
 			<a href="class-SNTools.Types.Int.html"><span>SNTools\Types\Int</span></a>
 			
+			 implements 
+				<a href="class-SNTools.Types.FlagInterface.html"><span>SNTools\Types\FlagInterface</span></a>
 			
 			
 		</dd>
@@ -164,7 +167,7 @@
 				<b>License:</b>
 				<a href="https://github.com/sntools/types/blob/master/LICENSE">MIT</a><br>
 				<b>Author:</b>
-				Samy NAAMANI <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;">&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;</a><br>
+				Samy Naamani <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;">&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;</a><br>
 			<b>Located at</b> <a href="source-class-SNTools.Types.UInt.html#29-40" title="Go to source code">UInt.php</a>
 		<br>
 	</div>
@@ -220,6 +223,12 @@
 	<caption>Methods inherited from <a href="class-SNTools.Types.Int.html#methods">SNTools\Types\Int</a></caption>
 	<tr>
 		<td><code>
+			<a href="class-SNTools.Types.Int.html#___bw_and">__bw_and()</a>, 
+			<a href="class-SNTools.Types.Int.html#___bw_not">__bw_not()</a>, 
+			<a href="class-SNTools.Types.Int.html#___bw_or">__bw_or()</a>, 
+			<a href="class-SNTools.Types.Int.html#___bw_xor">__bw_xor()</a>, 
+			<a href="class-SNTools.Types.Int.html#___sl">__sl()</a>, 
+			<a href="class-SNTools.Types.Int.html#___sr">__sr()</a>, 
 			<a href="class-SNTools.Types.Int.html#_bw_and">bw_and()</a>, 
 			<a href="class-SNTools.Types.Int.html#_bw_not">bw_not()</a>, 
 			<a href="class-SNTools.Types.Int.html#_bw_or">bw_or()</a>, 
@@ -234,15 +243,30 @@
 	<caption>Methods inherited from <a href="class-SNTools.Types.Number.html#methods">SNTools\Types\Number</a></caption>
 	<tr>
 		<td><code>
+			<a href="class-SNTools.Types.Number.html#___add">__add()</a>, 
+			<a href="class-SNTools.Types.Number.html#___div">__div()</a>, 
+			<a href="class-SNTools.Types.Number.html#___is_greater">__is_greater()</a>, 
+			<a href="class-SNTools.Types.Number.html#___is_greater_or_equal">__is_greater_or_equal()</a>, 
+			<a href="class-SNTools.Types.Number.html#___is_smaller">__is_smaller()</a>, 
+			<a href="class-SNTools.Types.Number.html#___is_smaller_or_equal">__is_smaller_or_equal()</a>, 
+			<a href="class-SNTools.Types.Number.html#___mod">__mod()</a>, 
+			<a href="class-SNTools.Types.Number.html#___mul">__mul()</a>, 
+			<a href="class-SNTools.Types.Number.html#___post_dec">__post_dec()</a>, 
+			<a href="class-SNTools.Types.Number.html#___post_inc">__post_inc()</a>, 
+			<a href="class-SNTools.Types.Number.html#___pre_dec">__pre_dec()</a>, 
+			<a href="class-SNTools.Types.Number.html#___pre_inc">__pre_inc()</a>, 
+			<a href="class-SNTools.Types.Number.html#___sub">__sub()</a>, 
 			<a href="class-SNTools.Types.Number.html#_add">add()</a>, 
 			<a href="class-SNTools.Types.Number.html#_clear">clear()</a>, 
 			<a href="class-SNTools.Types.Number.html#_compareTo">compareTo()</a>, 
+			<a href="class-SNTools.Types.Number.html#_decrement">decrement()</a>, 
 			<a href="class-SNTools.Types.Number.html#_div">div()</a>, 
 			<a href="class-SNTools.Types.Number.html#_equals">equals()</a>, 
 			<a href="class-SNTools.Types.Number.html#_fromBool">fromBool()</a>, 
 			<a href="class-SNTools.Types.Number.html#_fromString">fromString()</a>, 
 			<a href="class-SNTools.Types.Number.html#_greaterOrEqual">greaterOrEqual()</a>, 
 			<a href="class-SNTools.Types.Number.html#_greaterThan">greaterThan()</a>, 
+			<a href="class-SNTools.Types.Number.html#_increment">increment()</a>, 
 			<a href="class-SNTools.Types.Number.html#_lessOrEqual">lessOrEqual()</a>, 
 			<a href="class-SNTools.Types.Number.html#_lessThan">lessThan()</a>, 
 			<a href="class-SNTools.Types.Number.html#_module">module()</a>, 
@@ -257,15 +281,23 @@
 		<td><code>
 			<a href="class-SNTools.Types.Type.html#___bool">__bool()</a>, 
 			<a href="class-SNTools.Types.Type.html#___bool_not">__bool_not()</a>, 
+			<a href="class-SNTools.Types.Type.html#___clone">__clone()</a>, 
 			<a href="class-SNTools.Types.Type.html#___get">__get()</a>, 
+			<a href="class-SNTools.Types.Type.html#___is_equal">__is_equal()</a>, 
+			<a href="class-SNTools.Types.Type.html#___is_identical">__is_identical()</a>, 
+			<a href="class-SNTools.Types.Type.html#___is_not_equal">__is_not_equal()</a>, 
+			<a href="class-SNTools.Types.Type.html#___is_not_identical">__is_not_identical()</a>, 
 			<a href="class-SNTools.Types.Type.html#___set">__set()</a>, 
+			<a href="class-SNTools.Types.Type.html#___toString">__toString()</a>, 
 			<a href="class-SNTools.Types.Type.html#_create">create()</a>, 
 			<a href="class-SNTools.Types.Type.html#_fromArray">fromArray()</a>, 
 			<a href="class-SNTools.Types.Type.html#_fromObject">fromObject()</a>, 
 			<a href="class-SNTools.Types.Type.html#_fromResource">fromResource()</a>, 
 			<a href="class-SNTools.Types.Type.html#_getValue">getValue()</a>, 
+			<a href="class-SNTools.Types.Type.html#_is_identical">is_identical()</a>, 
 			<a href="class-SNTools.Types.Type.html#_setValue">setValue()</a>, 
-			<a href="class-SNTools.Types.Type.html#_toBool">toBool()</a>
+			<a href="class-SNTools.Types.Type.html#_toBool">toBool()</a>, 
+			<a href="class-SNTools.Types.Type.html#_toString">toString()</a>
 		</code></td>
 	</tr>
 	</table>
@@ -276,7 +308,6 @@
 			<a href="class-SNTools.Object.html#___construct">__construct()</a>, 
 			<a href="class-SNTools.Object.html#___constructStatic">__constructStatic()</a>, 
 			<a href="class-SNTools.Object.html#___isset">__isset()</a>, 
-			<a href="class-SNTools.Object.html#___toString">__toString()</a>, 
 			<a href="class-SNTools.Object.html#___unset">__unset()</a>
 		</code></td>
 	</tr>

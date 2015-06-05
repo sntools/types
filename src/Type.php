@@ -3,7 +3,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Samy NAAMANI.
+ * Copyright 2015 Samy Naamani.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,7 +33,7 @@ use SNTools\Types\Autoboxing\Memory;
  * This class fills the role of the AutoBoxedObject class, according to the Autoboxing technique from Arthur Graniszewski
  *
  * @link http://www.phpclasses.org/package/6570-PHP-Wrap-string-and-integer-values-in-objects.html Arthur Graniszewski's Autoboxing classes
- * @author Samy NAAMANI <samy@namani.net>
+ * @author Samy Naamani <samy@namani.net>
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  * @property boolean $nullable Is the element nullable or not ?
  */
@@ -240,6 +240,16 @@ abstract class Type extends Object {
     }
 
     /**
+     * Conversion to string
+     * @return String
+     */
+    final public function toString() {
+        $string = null;
+        String::create($string, $this);
+        return $string;
+    }
+
+    /**
      * (bool) operator overriding
      * @return boolean
      * @todo Query : return a native boolean or a Bool object ?
@@ -255,5 +265,77 @@ abstract class Type extends Object {
      */
     public function __bool_not() {
         return !$this->__bool();
+    }
+
+    /**
+     * Equality comparision
+     * @param mixed $other
+     * @return boolean
+     */
+    public function equals($other) {
+        return ($this->getValue () == (($other instanceof self) ? $other->getValue () : $other));
+    }
+
+    /**
+     * Equality comparision
+     * @param mixed $other
+     * @return boolean
+     */
+    public function is_identical($other) {
+        return ($this->getValue () === (($other instanceof self) ? $other->getValue () : $other));
+    }
+
+    /**
+     * == operator overriding
+     * @param mixed $val
+     * @return boolean
+     * @todo Query : return a native boolean or a Bool object ?
+     */
+    public function __is_equal($val) {
+        return $this->equals($val);
+    }
+
+    /**
+     * != operator overriding
+     * @param mixed $val
+     * @return boolean
+     * @todo Query : return a native boolean or a Bool object ?
+     */
+    public function __is_not_equal($val) {
+        return !$this->equals($val);
+    }
+
+    /**
+     * === operator overriding
+     * @param mixed $val
+     * @return boolean
+     */
+    public function __is_identical($val) {
+        return $this->is_identical($val);
+    }
+
+    /**
+     * !== operator overriding
+     * @param mixed $val
+     * @return boolean
+     */
+    public function __is_not_identical($val) {
+        return !$this->is_identical($val);
+    }
+
+    /**
+     * Cloning handler
+     */
+    public function __clone() {
+        static::create($this);
+    }
+
+    /**
+     * Real string conversion handler
+     * @return string
+     * @todo Query : return native string or String objet ?
+     */
+    final public function __toString() {
+        return $this->toString()->getValue();
     }
 }

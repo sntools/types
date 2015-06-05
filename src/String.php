@@ -3,7 +3,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Samy NAAMANI.
+ * Copyright 2015 Samy Naamani.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,7 +29,7 @@ namespace SNTools\Types;
 /**
  * String wrapper class
  *
- * @author Samy NAAMANI <samy@namani.net>
+ * @author Samy Naamani <samy@namani.net>
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  */
 class String extends Type {
@@ -51,9 +51,6 @@ class String extends Type {
     }
     protected function fromInt($value) {
         return $this->fromString(strval($value));
-    }
-    final public function __toString() {
-        return $this->value;
     }
     /**
      * Checks if string is empty
@@ -78,9 +75,17 @@ class String extends Type {
      * @return self Result string
      */
     public function concat($string) {
-        String::create($string);
-        $result = null;
-        static::create($result, $this->getValue() . $string->getValue());
-        return $result;
+        $new = clone $this;
+        $new->setValue($new->value . $string);
+        return $new;
+    }
+
+    /**
+     * . operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __concat($val) {
+        return $this->concat($val);
     }
 }

@@ -27,13 +27,62 @@
 namespace SNTools\Types;
 
 /**
- * Attempt to override a pointer, when overriding was not allowed
- *
- * @author Samy Naamani <samy@namani.net>
+ * Interface implementing bitwise operations
+ * @author Samy Naamani
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  */
-class OverrideException extends \UnexpectedValueException {
-    public function __construct() {
-        parent::__construct('Attempt to override a pointer', 0, null);
-    }
+interface FlagInterface {
+    /**
+     * Bitwise OR
+     * @param self $val
+     * @return self
+     */
+    public function bw_or($val);
+
+    /**
+     * | operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __bw_or($val);
+
+    /**
+     * Bitwise AND
+     * @param self $val
+     * @return self
+     */
+    public function bw_and($val);
+
+    /**
+     * & operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __bw_and($val);
+
+    /**
+     * Bitwise XOR
+     * @param self $val
+     * @return self
+     */
+    public function bw_xor($val);
+
+    /**
+     * ^ operator override
+     * @param mixed $val
+     * @return boolean
+     */
+    public function __bw_xor($val);
+
+    /**
+     * Bitwise NOT
+     * @return self
+     */
+    public function bw_not();
+
+    /**
+     * ~ operator override
+     * @return boolean
+     */
+    public function __bw_not();
 }

@@ -3,7 +3,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Samy NAAMANI.
+ * Copyright 2015 Samy Naamani.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,7 +32,7 @@ namespace SNTools\Types\Autoboxing;
  *
  * @link http://www.phpclasses.org/package/6570-PHP-Wrap-string-and-integer-values-in-objects.html Arthur Graniszewski's Autoboxing classes
  *
- * @author Samy NAAMANI <samy@namani.net>
+ * @author Samy Naamani <samy@namani.net>
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  * @ignore
  */

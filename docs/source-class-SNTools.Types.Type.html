@@ -56,6 +56,7 @@
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-SNTools.Types.Comparable.html">SNTools\Types\Comparable</a></li>
+				<li><a href="class-SNTools.Types.FlagInterface.html">SNTools\Types\FlagInterface</a></li>
 			</ul>
 
 
@@ -110,7 +111,7 @@
 </span><span id="3" class="l"><a href="#3">  3: </a><span class="php-comment">/*
 </span></span><span id="4" class="l"><a href="#4">  4: </a><span class="php-comment"> * The MIT License
 </span></span><span id="5" class="l"><a href="#5">  5: </a><span class="php-comment"> *
-</span></span><span id="6" class="l"><a href="#6">  6: </a><span class="php-comment"> * Copyright 2015 Samy NAAMANI.
+</span></span><span id="6" class="l"><a href="#6">  6: </a><span class="php-comment"> * Copyright 2015 Samy Naamani.
 </span></span><span id="7" class="l"><a href="#7">  7: </a><span class="php-comment"> *
 </span></span><span id="8" class="l"><a href="#8">  8: </a><span class="php-comment"> * Permission is hereby granted, free of charge, to any person obtaining a copy
 </span></span><span id="9" class="l"><a href="#9">  9: </a><span class="php-comment"> * of this software and associated documentation files (the &quot;Software&quot;), to deal
@@ -140,7 +141,7 @@
 </span></span><span id="33" class="l"><a href="#33"> 33: </a><span class="php-comment"> * This class fills the role of the AutoBoxedObject class, according to the Autoboxing technique from Arthur Graniszewski
 </span></span><span id="34" class="l"><a href="#34"> 34: </a><span class="php-comment"> *
 </span></span><span id="35" class="l"><a href="#35"> 35: </a><span class="php-comment"> * @link http://www.phpclasses.org/package/6570-PHP-Wrap-string-and-integer-values-in-objects.html Arthur Graniszewski's Autoboxing classes
-</span></span><span id="36" class="l"><a href="#36"> 36: </a><span class="php-comment"> * @author Samy NAAMANI &lt;samy@namani.net&gt;
+</span></span><span id="36" class="l"><a href="#36"> 36: </a><span class="php-comment"> * @author Samy Naamani &lt;samy@namani.net&gt;
 </span></span><span id="37" class="l"><a href="#37"> 37: </a><span class="php-comment"> * @license https://github.com/sntools/types/blob/master/LICENSE MIT
 </span></span><span id="38" class="l"><a href="#38"> 38: </a><span class="php-comment"> * @property boolean $nullable Is the element nullable or not ?
 </span></span><span id="39" class="l"><a href="#39"> 39: </a><span class="php-comment"> */</span>
@@ -347,24 +348,106 @@
 </span><span id="240" class="l"><a href="#240">240: </a>    }
 </span><span id="241" class="l"><a href="#241">241: </a>
 </span><span id="242" class="l"><a href="#242">242: </a>    <span class="php-comment">/**
-</span></span><span id="243" class="l"><a href="#243">243: </a><span class="php-comment">     * (bool) operator overriding
-</span></span><span id="244" class="l"><a href="#244">244: </a><span class="php-comment">     * @return boolean
-</span></span><span id="245" class="l"><a href="#245">245: </a><span class="php-comment">     * @todo Query : return a native boolean or a Bool object ?
-</span></span><span id="246" class="l"><a href="#246">246: </a><span class="php-comment">     */</span>
-</span><span id="247" class="l"><a href="#247">247: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __bool() {
-</span><span id="248" class="l"><a href="#248">248: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;toBool()-&gt;getValue();
-</span><span id="249" class="l"><a href="#249">249: </a>    }
-</span><span id="250" class="l"><a href="#250">250: </a>
-</span><span id="251" class="l"><a href="#251">251: </a>    <span class="php-comment">/**
-</span></span><span id="252" class="l"><a href="#252">252: </a><span class="php-comment">     * ! operator overriding
-</span></span><span id="253" class="l"><a href="#253">253: </a><span class="php-comment">     * @return boolean
-</span></span><span id="254" class="l"><a href="#254">254: </a><span class="php-comment">     * @todo Query : return a native boolean or a Bool object ?
-</span></span><span id="255" class="l"><a href="#255">255: </a><span class="php-comment">     */</span>
-</span><span id="256" class="l"><a href="#256">256: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __bool_not() {
-</span><span id="257" class="l"><a href="#257">257: </a>        <span class="php-keyword1">return</span> !<span class="php-var">$this</span>-&gt;__bool();
-</span><span id="258" class="l"><a href="#258">258: </a>    }
-</span><span id="259" class="l"><a href="#259">259: </a>}
-</span><span id="260" class="l"><a href="#260">260: </a></span></code></pre>
+</span></span><span id="243" class="l"><a href="#243">243: </a><span class="php-comment">     * Conversion to string
+</span></span><span id="244" class="l"><a href="#244">244: </a><span class="php-comment">     * @return String
+</span></span><span id="245" class="l"><a href="#245">245: </a><span class="php-comment">     */</span>
+</span><span id="246" class="l"><a href="#246">246: </a>    <span class="php-keyword1">final</span> <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> toString() {
+</span><span id="247" class="l"><a href="#247">247: </a>        <span class="php-var">$string</span> = <span class="php-keyword1">null</span>;
+</span><span id="248" class="l"><a href="#248">248: </a>        String::create(<span class="php-var">$string</span>, <span class="php-var">$this</span>);
+</span><span id="249" class="l"><a href="#249">249: </a>        <span class="php-keyword1">return</span> <span class="php-var">$string</span>;
+</span><span id="250" class="l"><a href="#250">250: </a>    }
+</span><span id="251" class="l"><a href="#251">251: </a>
+</span><span id="252" class="l"><a href="#252">252: </a>    <span class="php-comment">/**
+</span></span><span id="253" class="l"><a href="#253">253: </a><span class="php-comment">     * (bool) operator overriding
+</span></span><span id="254" class="l"><a href="#254">254: </a><span class="php-comment">     * @return boolean
+</span></span><span id="255" class="l"><a href="#255">255: </a><span class="php-comment">     * @todo Query : return a native boolean or a Bool object ?
+</span></span><span id="256" class="l"><a href="#256">256: </a><span class="php-comment">     */</span>
+</span><span id="257" class="l"><a href="#257">257: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __bool() {
+</span><span id="258" class="l"><a href="#258">258: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;toBool()-&gt;getValue();
+</span><span id="259" class="l"><a href="#259">259: </a>    }
+</span><span id="260" class="l"><a href="#260">260: </a>
+</span><span id="261" class="l"><a href="#261">261: </a>    <span class="php-comment">/**
+</span></span><span id="262" class="l"><a href="#262">262: </a><span class="php-comment">     * ! operator overriding
+</span></span><span id="263" class="l"><a href="#263">263: </a><span class="php-comment">     * @return boolean
+</span></span><span id="264" class="l"><a href="#264">264: </a><span class="php-comment">     * @todo Query : return a native boolean or a Bool object ?
+</span></span><span id="265" class="l"><a href="#265">265: </a><span class="php-comment">     */</span>
+</span><span id="266" class="l"><a href="#266">266: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __bool_not() {
+</span><span id="267" class="l"><a href="#267">267: </a>        <span class="php-keyword1">return</span> !<span class="php-var">$this</span>-&gt;__bool();
+</span><span id="268" class="l"><a href="#268">268: </a>    }
+</span><span id="269" class="l"><a href="#269">269: </a>
+</span><span id="270" class="l"><a href="#270">270: </a>    <span class="php-comment">/**
+</span></span><span id="271" class="l"><a href="#271">271: </a><span class="php-comment">     * Equality comparision
+</span></span><span id="272" class="l"><a href="#272">272: </a><span class="php-comment">     * @param mixed $other
+</span></span><span id="273" class="l"><a href="#273">273: </a><span class="php-comment">     * @return boolean
+</span></span><span id="274" class="l"><a href="#274">274: </a><span class="php-comment">     */</span>
+</span><span id="275" class="l"><a href="#275">275: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> equals(<span class="php-var">$other</span>) {
+</span><span id="276" class="l"><a href="#276">276: </a>        <span class="php-keyword1">return</span> (<span class="php-var">$this</span>-&gt;getValue () == ((<span class="php-var">$other</span> <span class="php-keyword1">instanceof</span> self) ? <span class="php-var">$other</span>-&gt;getValue () : <span class="php-var">$other</span>));
+</span><span id="277" class="l"><a href="#277">277: </a>    }
+</span><span id="278" class="l"><a href="#278">278: </a>
+</span><span id="279" class="l"><a href="#279">279: </a>    <span class="php-comment">/**
+</span></span><span id="280" class="l"><a href="#280">280: </a><span class="php-comment">     * Equality comparision
+</span></span><span id="281" class="l"><a href="#281">281: </a><span class="php-comment">     * @param mixed $other
+</span></span><span id="282" class="l"><a href="#282">282: </a><span class="php-comment">     * @return boolean
+</span></span><span id="283" class="l"><a href="#283">283: </a><span class="php-comment">     */</span>
+</span><span id="284" class="l"><a href="#284">284: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> is_identical(<span class="php-var">$other</span>) {
+</span><span id="285" class="l"><a href="#285">285: </a>        <span class="php-keyword1">return</span> (<span class="php-var">$this</span>-&gt;getValue () === ((<span class="php-var">$other</span> <span class="php-keyword1">instanceof</span> self) ? <span class="php-var">$other</span>-&gt;getValue () : <span class="php-var">$other</span>));
+</span><span id="286" class="l"><a href="#286">286: </a>    }
+</span><span id="287" class="l"><a href="#287">287: </a>
+</span><span id="288" class="l"><a href="#288">288: </a>    <span class="php-comment">/**
+</span></span><span id="289" class="l"><a href="#289">289: </a><span class="php-comment">     * == operator overriding
+</span></span><span id="290" class="l"><a href="#290">290: </a><span class="php-comment">     * @param mixed $val
+</span></span><span id="291" class="l"><a href="#291">291: </a><span class="php-comment">     * @return boolean
+</span></span><span id="292" class="l"><a href="#292">292: </a><span class="php-comment">     * @todo Query : return a native boolean or a Bool object ?
+</span></span><span id="293" class="l"><a href="#293">293: </a><span class="php-comment">     */</span>
+</span><span id="294" class="l"><a href="#294">294: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __is_equal(<span class="php-var">$val</span>) {
+</span><span id="295" class="l"><a href="#295">295: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;equals(<span class="php-var">$val</span>);
+</span><span id="296" class="l"><a href="#296">296: </a>    }
+</span><span id="297" class="l"><a href="#297">297: </a>
+</span><span id="298" class="l"><a href="#298">298: </a>    <span class="php-comment">/**
+</span></span><span id="299" class="l"><a href="#299">299: </a><span class="php-comment">     * != operator overriding
+</span></span><span id="300" class="l"><a href="#300">300: </a><span class="php-comment">     * @param mixed $val
+</span></span><span id="301" class="l"><a href="#301">301: </a><span class="php-comment">     * @return boolean
+</span></span><span id="302" class="l"><a href="#302">302: </a><span class="php-comment">     * @todo Query : return a native boolean or a Bool object ?
+</span></span><span id="303" class="l"><a href="#303">303: </a><span class="php-comment">     */</span>
+</span><span id="304" class="l"><a href="#304">304: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __is_not_equal(<span class="php-var">$val</span>) {
+</span><span id="305" class="l"><a href="#305">305: </a>        <span class="php-keyword1">return</span> !<span class="php-var">$this</span>-&gt;equals(<span class="php-var">$val</span>);
+</span><span id="306" class="l"><a href="#306">306: </a>    }
+</span><span id="307" class="l"><a href="#307">307: </a>
+</span><span id="308" class="l"><a href="#308">308: </a>    <span class="php-comment">/**
+</span></span><span id="309" class="l"><a href="#309">309: </a><span class="php-comment">     * === operator overriding
+</span></span><span id="310" class="l"><a href="#310">310: </a><span class="php-comment">     * @param mixed $val
+</span></span><span id="311" class="l"><a href="#311">311: </a><span class="php-comment">     * @return boolean
+</span></span><span id="312" class="l"><a href="#312">312: </a><span class="php-comment">     */</span>
+</span><span id="313" class="l"><a href="#313">313: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __is_identical(<span class="php-var">$val</span>) {
+</span><span id="314" class="l"><a href="#314">314: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;is_identical(<span class="php-var">$val</span>);
+</span><span id="315" class="l"><a href="#315">315: </a>    }
+</span><span id="316" class="l"><a href="#316">316: </a>
+</span><span id="317" class="l"><a href="#317">317: </a>    <span class="php-comment">/**
+</span></span><span id="318" class="l"><a href="#318">318: </a><span class="php-comment">     * !== operator overriding
+</span></span><span id="319" class="l"><a href="#319">319: </a><span class="php-comment">     * @param mixed $val
+</span></span><span id="320" class="l"><a href="#320">320: </a><span class="php-comment">     * @return boolean
+</span></span><span id="321" class="l"><a href="#321">321: </a><span class="php-comment">     */</span>
+</span><span id="322" class="l"><a href="#322">322: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __is_not_identical(<span class="php-var">$val</span>) {
+</span><span id="323" class="l"><a href="#323">323: </a>        <span class="php-keyword1">return</span> !<span class="php-var">$this</span>-&gt;is_identical(<span class="php-var">$val</span>);
+</span><span id="324" class="l"><a href="#324">324: </a>    }
+</span><span id="325" class="l"><a href="#325">325: </a>
+</span><span id="326" class="l"><a href="#326">326: </a>    <span class="php-comment">/**
+</span></span><span id="327" class="l"><a href="#327">327: </a><span class="php-comment">     * Cloning handler
+</span></span><span id="328" class="l"><a href="#328">328: </a><span class="php-comment">     */</span>
+</span><span id="329" class="l"><a href="#329">329: </a>    <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __clone() {
+</span><span id="330" class="l"><a href="#330">330: </a>        <span class="php-keyword1">static</span>::create(<span class="php-var">$this</span>);
+</span><span id="331" class="l"><a href="#331">331: </a>    }
+</span><span id="332" class="l"><a href="#332">332: </a>
+</span><span id="333" class="l"><a href="#333">333: </a>    <span class="php-comment">/**
+</span></span><span id="334" class="l"><a href="#334">334: </a><span class="php-comment">     * Real string conversion handler
+</span></span><span id="335" class="l"><a href="#335">335: </a><span class="php-comment">     * @return string
+</span></span><span id="336" class="l"><a href="#336">336: </a><span class="php-comment">     * @todo Query : return native string or String objet ?
+</span></span><span id="337" class="l"><a href="#337">337: </a><span class="php-comment">     */</span>
+</span><span id="338" class="l"><a href="#338">338: </a>    <span class="php-keyword1">final</span> <span class="php-keyword1">public</span> <span class="php-keyword1">function</span> __toString() {
+</span><span id="339" class="l"><a href="#339">339: </a>        <span class="php-keyword1">return</span> <span class="php-var">$this</span>-&gt;toString()-&gt;getValue();
+</span><span id="340" class="l"><a href="#340">340: </a>    }
+</span><span id="341" class="l"><a href="#341">341: </a>}
+</span><span id="342" class="l"><a href="#342">342: </a></span></code></pre>
 
 	<div id="footer">
 		SNTypes : Strong type handling API documentation generated by <a href="http://apigen.org">ApiGen</a>
@@ -372,6 +455,6 @@
 </div>
 </div>
 <script src="resources/combined.js?1f06b9f1aa7a39071817afe59cfb473c2bf25998"></script>
-<script src="elementlist.js?07290ac066d9a4aced2369efc59c825088811160"></script>
+<script src="elementlist.js?6f31e3443a7813019ea7091a8f347d6b42d01c95"></script>
 </body>
 </html>

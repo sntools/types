@@ -31,8 +31,9 @@ namespace SNTools\Types;
  * Extend this class to add constants to it to create an enumeration
  *
  * @author Samy Naamani
+ * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  */
-abstract class Flag extends Enum {
+abstract class Flag extends Enum implements FlagInterface {
     /**
      * @return int
      */
@@ -63,4 +64,45 @@ abstract class Flag extends Enum {
         }
         return $result;
     }
+
+    public function __bw_and($val) {
+        return $this->bw_and($val);
+    }
+
+    public function __bw_not() {
+        return $this->bw_not();
+    }
+
+    public function __bw_or($val) {
+        return $this->bw_or($val);
+    }
+
+    public function __bw_xor($val) {
+        return $this->bw_xor($val);
+    }
+
+    public function bw_and($val) {
+        $new = clone $this;
+        $new->setValue($new->value & $val);
+        return $new;
+    }
+
+    public function bw_not() {
+        $new = clone $this;
+        $new->setValue(~$new->value);
+        return $new;
+    }
+
+    public function bw_or($val) {
+        $new = clone $this;
+        $new->setValue($new->value | $val);
+        return $new;
+    }
+
+    public function bw_xor($val) {
+        $new = clone $this;
+        $new->setValue($new->value ^ $val);
+        return $new;
+    }
+
 }

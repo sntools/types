@@ -3,7 +3,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Samy NAAMANI.
+ * Copyright 2015 Samy Naamani.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -30,7 +30,7 @@ namespace SNTools\Types;
  * Wrapper for numbers (floats and integers)
  * For integer-specific wrapper, see Int and UInt
  *
- * @author Samy NAAMANI <samy@namani.net>
+ * @author Samy Naamani <samy@namani.net>
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  */
 class Number extends Type implements Comparable {
@@ -55,8 +55,9 @@ class Number extends Type implements Comparable {
      */
     public function add($b) {
         static::create($b);
-        static::create($b, $this->value + $b->value);
-        return $b;
+        $new = clone $this;
+        $new->setValue($new->value + $b->value);
+        return $new;
     }
     /**
      * Deduces a number to this number
@@ -65,8 +66,9 @@ class Number extends Type implements Comparable {
      */
     public function sub($b) {
         static::create($b);
-        static::create($b, $this->value - $b->value);
-        return $b;
+        $new = clone $this;
+        $new->setValue($new->value - $b->value);
+        return $new;
     }
     /**
      * Multiplies a number by this number
@@ -75,8 +77,9 @@ class Number extends Type implements Comparable {
      */
     public function times($b) {
         static::create($b);
-        static::create($b, $this->value * $b->value);
-        return $b;
+        $new = clone $this;
+        $new->setValue($new->value * $b->value);
+        return $new;
     }
     /**
      * Divides this number using given number
@@ -86,9 +89,10 @@ class Number extends Type implements Comparable {
      */
     public function div($b) {
         static::create($b);
-        if($b->value == 0) throw new DivideByZeroException;
-        static::create($b, $this->value / $b->value);
-        return $b;
+        if($b->equals(0)) throw new DivideByZeroException;
+        $new = clone $this;
+        $new->setValue($new->value / $b->value);
+        return $new;
     }
     /**
      * Computes the modulo of this number by given number
@@ -98,9 +102,10 @@ class Number extends Type implements Comparable {
      */
     public function module($b) {
         static::create($b);
-        if($b->value == 0) throw new DivideByZeroException;
-        static::create($b, $this->value % $b->value);
-        return $b;
+        if($b->equals(0)) throw new DivideByZeroException;
+        $new = clone $this;
+        $new->setValue($new->value % $b->value);
+        return $new;
     }
     
     public function compareTo($b) {
@@ -115,52 +120,130 @@ class Number extends Type implements Comparable {
         }
     }
     
-    /**
-     * Checks if number is greater than given number
-     * @param mixed $b
-     * @return boolean
-     */
     public function greaterThan($b) {
         return 0 < $this->compareTo($b);
     }
     
-    /**
-     * Checks if number is greater than or equals given number
-     * @param mixed $b
-     * @return boolean
-     */
     public function greaterOrEqual($b) {
         return 0 <= $this->compareTo($b);
     }
     
-    /**
-     * Checks if number is lesser than given number
-     * @param mixed $b
-     * @return boolean
-     */
     public function lessThan($b) {
         return 0 > $this->compareTo($b);
     }
     
-    /**
-     * Checks if number is lesser than or equals given number
-     * @param mixed $b
-     * @return boolean
-     */
     public function lessOrEqual($b) {
         return 0 >= $this->compareTo($b);
     }
     
-    /**
-     * Checks if number is equals given number
-     * @param mixed $b
-     * @return boolean
-     */
     public function equals($b) {
         return 0 == $this->compareTo($b);
     }
 
     protected function clear() {
         $this->value = 0;
+    }
+
+    public function __is_greater($val) {
+        return $this->greaterThan($val);
+    }
+
+    public function __is_greater_or_equal($val) {
+        return $this->greaterOrEqual($val);
+    }
+
+    public function __is_smaller($val) {
+        return $this->lessThan($val);
+    }
+
+    public function __is_smaller_or_equal($val) {
+        return $this->lessOrEqual($val);
+    }
+
+    /**
+     * + operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __add($val) {
+        return $this->add($val);
+    }
+
+    /**
+     * - operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __sub($val) {
+        return $this->sub($val);
+    }
+
+    /**
+     * * operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __mul($val) {
+        return $this->times($val);
+    }
+
+    /**
+     * / operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __div($val) {
+        return $this->div($val);
+    }
+
+    /**
+     * % operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __mod($val) {
+        return $this->module($val);
+    }
+
+    /**
+     * post -- operator override
+     */
+    public function __post_dec() {
+        return $this->decrement();
+    }
+
+    /**
+     * post ++ operator override
+     */
+    public function __post_inc() {
+        return $this->increment();
+    }
+
+    /**
+     * pre -- operator override
+     */
+    public function __pre_dec() {
+        return $this->decrement();
+    }
+
+    /**
+     * pre ++ operator override
+     */
+    public function __pre_inc() {
+        return $this->increment();
+    }
+
+    /**
+     * Decreases value by 1
+     */
+    public function decrement() {
+        $this->setValue($this->value - 1);
+    }
+
+    /**
+     * Increases value by 1
+     */
+    public function increment() {
+        $this->setValue($this->value + 1);
     }
 }

@@ -54,6 +54,7 @@
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-SNTools.Types.Comparable.html">Comparable</a></li>
+				<li><a href="class-SNTools.Types.FlagInterface.html">FlagInterface</a></li>
 			</ul>
 
 
@@ -135,6 +136,8 @@ Extend this class to add constants to it to create an enumeration</p>
 		<dd style="padding-left:90px">
 			<img src="resources/inherit.png" alt="Extended by">
 <b><span>SNTools\Types\Flag</span></b>			
+			 implements 
+				<a href="class-SNTools.Types.FlagInterface.html"><span>SNTools\Types\FlagInterface</span></a>
 			
 			
 		</dd>
@@ -153,9 +156,11 @@ Extend this class to add constants to it to create an enumeration</p>
 		<b>Namespace:</b> <a href="namespace-SNTools.html">SNTools</a>\<a href="namespace-SNTools.Types.html">Types</a><br>
 		
 
+				<b>License:</b>
+				<a href="https://github.com/sntools/types/blob/master/LICENSE">MIT</a><br>
 				<b>Author:</b>
 				Samy Naamani<br>
-			<b>Located at</b> <a href="source-class-SNTools.Types.Flag.html#29-66" title="Go to source code">Flag.php</a>
+			<b>Located at</b> <a href="source-class-SNTools.Types.Flag.html#29-108" title="Go to source code">Flag.php</a>
 		<br>
 	</div>
 
@@ -175,7 +180,7 @@ Extend this class to add constants to it to create an enumeration</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_fromEnumValue">#</a>
-		<code><a href="source-class-SNTools.Types.Flag.html#46-54" title="Go to source code">fromEnumValue</a>( <span>mixed <var>$value</var></span> )</code>
+		<code><a href="source-class-SNTools.Types.Flag.html#47-55" title="Go to source code">fromEnumValue</a>( <span>mixed <var>$value</var></span> )</code>
 
 		<div class="description short">
 			<p>Checks variable creation from enumeration value</p>
@@ -216,7 +221,7 @@ Extend this class to add constants to it to create an enumeration</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#_getConstName">#</a>
-		<code><a href="source-class-SNTools.Types.Flag.html#55-65" title="Go to source code">getConstName</a>( )</code>
+		<code><a href="source-class-SNTools.Types.Flag.html#56-66" title="Go to source code">getConstName</a>( )</code>
 
 		<div class="description short">
 			<p>Get flag constant name, as an array. If more than one flag are combined, list combined flag</p>
@@ -237,6 +242,324 @@ Extend this class to add constants to it to create an enumeration</p>
 				<h4>Overrides</h4>
 				<div class="list"><code><a href="class-SNTools.Types.Enum.html#_getConstName">SNTools\Types\Enum::getConstName()</a></code></div>
 
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__bw_and" id="___bw_and">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___bw_and">#</a>
+		<code><a href="source-class-SNTools.Types.Flag.html#68-70" title="Go to source code">__bw_and</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>&amp; operator override</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>&amp; operator override</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SNTools.Types.FlagInterface.html#___bw_and">SNTools\Types\FlagInterface::__bw_and()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__bw_not" id="___bw_not">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___bw_not">#</a>
+		<code><a href="source-class-SNTools.Types.Flag.html#72-74" title="Go to source code">__bw_not</a>( )</code>
+
+		<div class="description short">
+			<p>~ operator override</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>~ operator override</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SNTools.Types.FlagInterface.html#___bw_not">SNTools\Types\FlagInterface::__bw_not()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__bw_or" id="___bw_or">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___bw_or">#</a>
+		<code><a href="source-class-SNTools.Types.Flag.html#76-78" title="Go to source code">__bw_or</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>| operator override</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>| operator override</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SNTools.Types.FlagInterface.html#___bw_or">SNTools\Types\FlagInterface::__bw_or()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__bw_xor" id="___bw_xor">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___bw_xor">#</a>
+		<code><a href="source-class-SNTools.Types.Flag.html#80-82" title="Go to source code">__bw_xor</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>^ operator override</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>^ operator override</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SNTools.Types.FlagInterface.html#___bw_xor">SNTools\Types\FlagInterface::__bw_xor()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bw_and" id="_bw_and">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bw_and">#</a>
+		<code><a href="source-class-SNTools.Types.Flag.html#84-88" title="Go to source code">bw_and</a>( <span><code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code> <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>Bitwise AND</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Bitwise AND</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SNTools.Types.FlagInterface.html#_bw_and">SNTools\Types\FlagInterface::bw_and()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bw_not" id="_bw_not">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bw_not">#</a>
+		<code><a href="source-class-SNTools.Types.Flag.html#90-94" title="Go to source code">bw_not</a>( )</code>
+
+		<div class="description short">
+			<p>Bitwise NOT</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Bitwise NOT</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SNTools.Types.FlagInterface.html#_bw_not">SNTools\Types\FlagInterface::bw_not()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bw_or" id="_bw_or">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bw_or">#</a>
+		<code><a href="source-class-SNTools.Types.Flag.html#96-100" title="Go to source code">bw_or</a>( <span><code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code> <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>Bitwise OR</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Bitwise OR</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SNTools.Types.FlagInterface.html#_bw_or">SNTools\Types\FlagInterface::bw_or()</a></code></div>
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="bw_xor" id="_bw_xor">
+
+		<td class="attributes"><code>
+			 public 
+
+			<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_bw_xor">#</a>
+		<code><a href="source-class-SNTools.Types.Flag.html#102-106" title="Go to source code">bw_xor</a>( <span><code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code> <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>Bitwise XOR</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Bitwise XOR</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.Flag.html">SNTools\Types\Flag</a></code>
+				</div>
+
+
+
+
+				<h4>Implementation of</h4>
+				<div class="list"><code><a href="class-SNTools.Types.FlagInterface.html#_bw_xor">SNTools\Types\FlagInterface::bw_xor()</a></code></div>
 		</div>
 		</div></td>
 	</tr>
@@ -264,12 +587,21 @@ Extend this class to add constants to it to create an enumeration</p>
 		<td><code>
 			<a href="class-SNTools.Types.Type.html#___bool">__bool()</a>, 
 			<a href="class-SNTools.Types.Type.html#___bool_not">__bool_not()</a>, 
+			<a href="class-SNTools.Types.Type.html#___clone">__clone()</a>, 
 			<a href="class-SNTools.Types.Type.html#___get">__get()</a>, 
+			<a href="class-SNTools.Types.Type.html#___is_equal">__is_equal()</a>, 
+			<a href="class-SNTools.Types.Type.html#___is_identical">__is_identical()</a>, 
+			<a href="class-SNTools.Types.Type.html#___is_not_equal">__is_not_equal()</a>, 
+			<a href="class-SNTools.Types.Type.html#___is_not_identical">__is_not_identical()</a>, 
 			<a href="class-SNTools.Types.Type.html#___set">__set()</a>, 
+			<a href="class-SNTools.Types.Type.html#___toString">__toString()</a>, 
 			<a href="class-SNTools.Types.Type.html#_create">create()</a>, 
+			<a href="class-SNTools.Types.Type.html#_equals">equals()</a>, 
 			<a href="class-SNTools.Types.Type.html#_getValue">getValue()</a>, 
+			<a href="class-SNTools.Types.Type.html#_is_identical">is_identical()</a>, 
 			<a href="class-SNTools.Types.Type.html#_setValue">setValue()</a>, 
-			<a href="class-SNTools.Types.Type.html#_toBool">toBool()</a>
+			<a href="class-SNTools.Types.Type.html#_toBool">toBool()</a>, 
+			<a href="class-SNTools.Types.Type.html#_toString">toString()</a>
 		</code></td>
 	</tr>
 	</table>
@@ -280,7 +612,6 @@ Extend this class to add constants to it to create an enumeration</p>
 			<a href="class-SNTools.Object.html#___construct">__construct()</a>, 
 			<a href="class-SNTools.Object.html#___constructStatic">__constructStatic()</a>, 
 			<a href="class-SNTools.Object.html#___isset">__isset()</a>, 
-			<a href="class-SNTools.Object.html#___toString">__toString()</a>, 
 			<a href="class-SNTools.Object.html#___unset">__unset()</a>
 		</code></td>
 	</tr>

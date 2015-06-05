@@ -3,7 +3,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Samy NAAMANI.
+ * Copyright 2015 Samy Naamani.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,10 +29,10 @@ namespace SNTools\Types;
 /**
  * Wrapper for integer numbers. For unsigned integers, see UInt
  *
- * @author Samy NAAMANI <samy@namani.net>
+ * @author Samy Naamani <samy@namani.net>
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  */
-class Int extends Number {
+class Int extends Number implements FlagInterface {
 
     protected function fromInt($value) {
         $this->value = $value;
@@ -43,46 +43,31 @@ class Int extends Number {
         return $this->fromInt((int) $value);
     }
 
-    /**
-     * Bitwise AND
-     * @param self $b
-     * @return self
-     */
     public function bw_and($b) {
         static::create($b);
-        static::create($b, $this->value & $b->value);
-        return $b;
+        $new = clone $this;
+        $new->setValue($new->value & $b->value);
+        return $new;
     }
 
-    /**
-     * Bitwise OR
-     * @param self $b
-     * @return self
-     */
     public function bw_or($b) {
-        static::create($$b);
-        static::create($b, $this->value | $b->value);
-        return $b;
+        static::create($b);
+        $new = clone $this;
+        $new->setValue($new->value | $b->value);
+        return $new;
     }
 
-    /**
-     * Bitwise XOR
-     * @param self $b
-     * @return self
-     */
     public function bw_xor($b) {
-        static::create($$b);
-        static::create($b, $this->value ^ $b->value);
-        return $b;
+        static::create($b);
+        $new = clone $this;
+        $new->setValue($new->value ^ $b->value);
+        return $new;
     }
 
-    /**
-     * Bitwise NOT
-     * @return self
-     */
     public function bw_not() {
-        $new = null;
-        static::create($new, ~$this->value);
+        static::create($b);
+        $new = clone $this;
+        $new->setValue(~$new->value->value);
         return $new;
     }
 
@@ -93,8 +78,9 @@ class Int extends Number {
      */
     public function bw_shift_left($b) {
         static::create($b);
-        static::create($b, $this->value << $b->value);
-        return $b;
+        $new = clone $this;
+        $new->setValue($new->value << $b->value);
+        return $new;
     }
 
     /**
@@ -104,8 +90,42 @@ class Int extends Number {
      */
     public function bw_shift_right($b) {
         static::create($b);
-        static::create($b, $this->value >> $b->value);
-        return $b;
+        $new = clone $this;
+        $new->setValue($new->value >> $b->value);
+        return $new;
     }
 
+    public function __bw_and($val) {
+        return $this->bitwiseAnd($val);
+    }
+
+    public function __bw_not() {
+        return $this->bitwiseNot();
+    }
+
+    public function __bw_or($val) {
+        return $this->bitwiseOr($val);
+    }
+
+    public function __bw_xor($val) {
+        return $this->bitwiseXor($val);
+    }
+
+    /**
+     * << operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __sl($val) {
+        return $this->slideLeft($val);
+    }
+
+    /**
+     * >> operator override
+     * @param mixed $val
+     * @return self
+     */
+    public function __sr($val) {
+        return $this->slideRight($val);
+    }
 }

@@ -3,7 +3,7 @@
 /*
  * The MIT License
  *
- * Copyright 2015 Samy NAAMANI.
+ * Copyright 2015 Samy Naamani.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ namespace SNTools\Types;
 
 /**
  * Interface declaring the comparable feature of some types
- * @author Samy NAAMANI <samy@namani.net>
+ * @author Samy Naamani <samy@namani.net>
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  */
 interface Comparable {
@@ -38,4 +38,60 @@ interface Comparable {
      * @return int 1 if $b is less than $this, 0 if they are equals, -1 otherwise
      */
     public function compareTo($b);
+
+    /**
+     * Checks if number is greater than given number
+     * @param mixed $b
+     * @return boolean
+     */
+    public function greaterThan($b);
+
+    /**
+     * Checks if number is greater than or equals given number
+     * @param mixed $b
+     * @return boolean
+     */
+    public function greaterOrEqual($b);
+
+    /**
+     * Checks if number is lesser than given number
+     * @param mixed $b
+     * @return boolean
+     */
+    public function lessThan($b);
+
+    /**
+     * Checks if number is lesser than or equals given number
+     * @param mixed $b
+     * @return boolean
+     */
+    public function lessOrEqual($b);
+
+    /**
+     * < Operator override
+     * @param mixed $val
+     * @return boolean
+     */
+    public function __is_smaller($val);
+
+    /**
+     * <= operator override
+     * @param mixed$val
+     * @return boolean
+     */
+    public function __is_smaller_or_equal($val);
+
+    /**
+     * > operator override
+     * @param boolean $val
+     * @return boolean
+     */
+    public function __is_greater($val);
+
+    /**
+     * >= operator override
+     * @param boolean $val
+     * @return boolean
+     */
+    public function __is_greater_or_equal($val);
 }

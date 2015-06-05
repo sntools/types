@@ -54,6 +54,7 @@
 			<h3>Interfaces</h3>
 			<ul>
 				<li><a href="class-SNTools.Types.Comparable.html">Comparable</a></li>
+				<li><a href="class-SNTools.Types.FlagInterface.html">FlagInterface</a></li>
 			</ul>
 
 
@@ -157,10 +158,10 @@ This class fills the role of the AutoBoxedObject class, according to the Autobox
 				<b>License:</b>
 				<a href="https://github.com/sntools/types/blob/master/LICENSE">MIT</a><br>
 				<b>Author:</b>
-				Samy NAAMANI <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;">&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;</a><br>
+				Samy Naamani <a href="&#109;&#97;&#x69;&#108;&#x74;&#111;&#x3a;&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;">&#115;&#x61;&#109;y&#x40;&#110;&#x61;&#109;&#x61;&#110;&#x69;&#46;&#x6e;&#101;&#116;</a><br>
 				<b>Link:</b>
 				<a href="http://www.phpclasses.org/package/6570-PHP-Wrap-string-and-integer-values-in-objects.html">Arthur Graniszewski&#039;s Autoboxing classes</a><br>
-			<b>Located at</b> <a href="source-class-SNTools.Types.Type.html#31-259" title="Go to source code">Type.php</a>
+			<b>Located at</b> <a href="source-class-SNTools.Types.Type.html#31-341" title="Go to source code">Type.php</a>
 		<br>
 	</div>
 
@@ -728,6 +729,40 @@ readable properties (example : with switch)</p>
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="toString" id="_toString">
+
+		<td class="attributes"><code>
+			final public 
+
+			<code><a href="class-SNTools.Types.String.html">SNTools\Types\String</a></code>
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_toString">#</a>
+		<code><a href="source-class-SNTools.Types.Type.html#242-250" title="Go to source code">toString</a>( )</code>
+
+		<div class="description short">
+			<p>Conversion to string</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Conversion to string</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code><a href="class-SNTools.Types.String.html">SNTools\Types\String</a></code>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
 	<tr data-order="__bool" id="___bool">
 
 		<td class="attributes"><code>
@@ -740,7 +775,7 @@ readable properties (example : with switch)</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___bool">#</a>
-		<code><a href="source-class-SNTools.Types.Type.html#242-249" title="Go to source code">__bool</a>( )</code>
+		<code><a href="source-class-SNTools.Types.Type.html#252-259" title="Go to source code">__bool</a>( )</code>
 
 		<div class="description short">
 			<p>(bool) operator overriding</p>
@@ -778,7 +813,7 @@ readable properties (example : with switch)</p>
 
 		<td class="name"><div>
 		<a class="anchor" href="#___bool_not">#</a>
-		<code><a href="source-class-SNTools.Types.Type.html#251-258" title="Go to source code">__bool_not</a>( )</code>
+		<code><a href="source-class-SNTools.Types.Type.html#261-268" title="Go to source code">__bool_not</a>( )</code>
 
 		<div class="description short">
 			<p>! operator overriding</p>
@@ -804,6 +839,318 @@ readable properties (example : with switch)</p>
 		</div>
 		</div></td>
 	</tr>
+	<tr data-order="equals" id="_equals">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_equals">#</a>
+		<code><a href="source-class-SNTools.Types.Type.html#270-277" title="Go to source code">equals</a>( <span>mixed <var>$other</var></span> )</code>
+
+		<div class="description short">
+			<p>Equality comparision</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Equality comparision</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$other</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="is_identical" id="_is_identical">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_is_identical">#</a>
+		<code><a href="source-class-SNTools.Types.Type.html#279-286" title="Go to source code">is_identical</a>( <span>mixed <var>$other</var></span> )</code>
+
+		<div class="description short">
+			<p>Equality comparision</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Equality comparision</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$other</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__is_equal" id="___is_equal">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___is_equal">#</a>
+		<code><a href="source-class-SNTools.Types.Type.html#288-296" title="Go to source code">__is_equal</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>== operator overriding</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>== operator overriding</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+				<h4>Todo</h4>
+				<div class="list">
+						Query : return a native boolean or a Bool object ?<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__is_not_equal" id="___is_not_equal">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___is_not_equal">#</a>
+		<code><a href="source-class-SNTools.Types.Type.html#298-306" title="Go to source code">__is_not_equal</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>!= operator overriding</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>!= operator overriding</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+				<h4>Todo</h4>
+				<div class="list">
+						Query : return a native boolean or a Bool object ?<br>
+				</div>
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__is_identical" id="___is_identical">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___is_identical">#</a>
+		<code><a href="source-class-SNTools.Types.Type.html#308-315" title="Go to source code">__is_identical</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>=== operator overriding</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>=== operator overriding</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__is_not_identical" id="___is_not_identical">
+
+		<td class="attributes"><code>
+			 public 
+
+			boolean
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___is_not_identical">#</a>
+		<code><a href="source-class-SNTools.Types.Type.html#317-324" title="Go to source code">__is_not_identical</a>( <span>mixed <var>$val</var></span> )</code>
+
+		<div class="description short">
+			<p>!== operator overriding</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>!== operator overriding</p>
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$val</var></dt>
+					<dd></dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					boolean
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__clone" id="___clone">
+
+		<td class="attributes"><code>
+			 public 
+
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___clone">#</a>
+		<code><a href="source-class-SNTools.Types.Type.html#326-331" title="Go to source code">__clone</a>( )</code>
+
+		<div class="description short">
+			<p>Cloning handler</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Cloning handler</p>
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="__toString" id="___toString">
+
+		<td class="attributes"><code>
+			final public 
+
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#___toString">#</a>
+		<code><a href="source-class-SNTools.Types.Type.html#333-340" title="Go to source code">__toString</a>( )</code>
+
+		<div class="description short">
+			<p>Real string conversion handler</p>
+		</div>
+
+		<div class="description detailed hidden">
+			<p>Real string conversion handler</p>
+
+
+
+				<h4>Returns</h4>
+				<div class="list">
+					string
+				</div>
+
+
+				<h4>Todo</h4>
+				<div class="list">
+						Query : return native string or String objet ?<br>
+				</div>
+
+				<h4>Overrides</h4>
+				<div class="list"><code><a href="class-SNTools.Object.html#___toString">SNTools\Object::__toString()</a></code></div>
+
+		</div>
+		</div></td>
+	</tr>
 	</table>
 
 	<table class="summary inherited">
@@ -813,7 +1160,6 @@ readable properties (example : with switch)</p>
 			<a href="class-SNTools.Object.html#___construct">__construct()</a>, 
 			<a href="class-SNTools.Object.html#___constructStatic">__constructStatic()</a>, 
 			<a href="class-SNTools.Object.html#___isset">__isset()</a>, 
-			<a href="class-SNTools.Object.html#___toString">__toString()</a>, 
 			<a href="class-SNTools.Object.html#___unset">__unset()</a>
 		</code></td>
 	</tr>

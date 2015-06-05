@@ -33,7 +33,7 @@ namespace SNTools\Types;
  * @author Samy Naamani
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  */
-abstract class Flag extends Enum implements FlagInterface {
+abstract class Flag extends Enum {
     /**
      * @return int
      */
@@ -65,44 +65,30 @@ abstract class Flag extends Enum implements FlagInterface {
         return $result;
     }
 
-    public function __bw_and($val) {
-        return $this->bw_and($val);
+    /**
+     * Checks
+     * @param int $val
+     * @return boolean
+     */
+    public function hasFlag($val) {
+        Int::create($val);
+        return (bool)($val->bw_and($this)->getValue());
     }
 
-    public function __bw_not() {
-        return $this->bw_not();
+    /**
+     *
+     * @param int $val
+     */
+    public function removeFlag($val) {
+        Int::create($val);
+        $this->setValue($val->bw_not()->bw_and($this));
     }
 
-    public function __bw_or($val) {
-        return $this->bw_or($val);
+    /**
+     *
+     * @param int $val
+     */
+    public function addFlag($val) {
+        $this->setValue($val->bw_or($this));
     }
-
-    public function __bw_xor($val) {
-        return $this->bw_xor($val);
-    }
-
-    public function bw_and($val) {
-        $new = clone $this;
-        $new->setValue($new->value & $val);
-        return $new;
-    }
-
-    public function bw_not() {
-        $new = clone $this;
-        $new->setValue(~$new->value);
-        return $new;
-    }
-
-    public function bw_or($val) {
-        $new = clone $this;
-        $new->setValue($new->value | $val);
-        return $new;
-    }
-
-    public function bw_xor($val) {
-        $new = clone $this;
-        $new->setValue($new->value ^ $val);
-        return $new;
-    }
-
 }

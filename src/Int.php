@@ -32,7 +32,7 @@ namespace SNTools\Types;
  * @author Samy Naamani <samy@namani.net>
  * @license https://github.com/sntools/types/blob/master/LICENSE MIT
  */
-class Int extends Number implements FlagInterface {
+class Int extends Number {
 
     protected function fromInt($value) {
         $this->value = $value;
@@ -43,6 +43,11 @@ class Int extends Number implements FlagInterface {
         return $this->fromInt((int) $value);
     }
 
+    /**
+     * Bitwise AND
+     * @param self $b
+     * @return self
+     */
     public function bw_and($b) {
         static::create($b);
         $new = clone $this;
@@ -50,6 +55,11 @@ class Int extends Number implements FlagInterface {
         return $new;
     }
 
+    /**
+     * Bitwise OR
+     * @param self $b
+     * @return self
+     */
     public function bw_or($b) {
         static::create($b);
         $new = clone $this;
@@ -57,6 +67,11 @@ class Int extends Number implements FlagInterface {
         return $new;
     }
 
+    /**
+     * Bitwise XOR
+     * @param self $b
+     * @return self
+     */
     public function bw_xor($b) {
         static::create($b);
         $new = clone $this;
@@ -64,8 +79,11 @@ class Int extends Number implements FlagInterface {
         return $new;
     }
 
+    /**
+     * Bitwise NOT
+     * @return self
+     */
     public function bw_not() {
-        static::create($b);
         $new = clone $this;
         $new->setValue(~$new->value->value);
         return $new;
@@ -95,18 +113,37 @@ class Int extends Number implements FlagInterface {
         return $new;
     }
 
+    /**
+     * & operator override
+     * @param mixed $val
+     * @return self
+     */
     public function __bw_and($val) {
         return $this->bitwiseAnd($val);
     }
 
+    /**
+     * ~ operator override
+     * @return boolean
+     */
     public function __bw_not() {
         return $this->bitwiseNot();
     }
 
+    /**
+     * | operator override
+     * @param mixed $val
+     * @return self
+     */
     public function __bw_or($val) {
         return $this->bitwiseOr($val);
     }
 
+    /**
+     * ^ operator override
+     * @param mixed $val
+     * @return boolean
+     */
     public function __bw_xor($val) {
         return $this->bitwiseXor($val);
     }

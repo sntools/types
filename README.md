@@ -11,7 +11,7 @@ Thus, the package will grant you access to object-oriented wrappers for simple t
 The easiest way to download the core tools is through Composer. Simply add the following to your composer requirements, where "~1.0" can be replaced by any version you need :
 
 ```
-"sntools/types": "~1.0"
+"sntools/types": "*"
 ```
 
 # The fathers of PHP Autoboxing
@@ -77,11 +77,15 @@ $type = 'Foo'; // TypeMismatchException
 
 # API Reference
 
-More detailed documentation is avilable as HTML files, in the docs/ subfolder.
+To generate the documentation, use the apigen.neon file to generate it in a "docs" folder
+
+```
+> apigen generate
+```
 
 # Testing
 
-Unit tests have been provided, using PHPUnit, in the tests/ subfolder.
+Coming soon in /tests subfolder...
 
 # Contributors
 
